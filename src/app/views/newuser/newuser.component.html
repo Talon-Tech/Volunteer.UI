@@ -1,0 +1,25 @@
+<h1>Create a New User</h1>
+<div class="alert alert-danger" *ngIf="error">
+  {{errorMsg}}
+</div>
+<!-- <div class="mb-3">
+  <label for="userId" class="form-label">User Id <span class="req">*</span></label>
+  <input type="text" class="form-control" id="userId" required [(ngModel)]="newUser!.userId">
+</div> -->
+<div class="mb-3">
+  <label for="firstName" class="form-label">First Name <span class="req">*</span></label>
+  <input type="text" class="form-control" id="firstName" required [(ngModel)]="newUser!.firstName">
+</div>
+<div class="mb-3">
+  <label for="lastName" class="form-label">Last Name <span class="req">*</span></label>
+  <input type="text" class="form-control" id="lastName" required [(ngModel)]="newUser!.lastName">
+</div>
+<div class="mb-3">
+  <label for="email" class="form-label">Email <span class="req">*</span></label>
+  <input type="email" class="form-control" id="email" required [(ngModel)]="newUser!.email">
+</div>
+<div class="mb-3">
+  <label for="password" class="form-label">Password <span class="req">*</span></label>
+  <input type="password" class="form-control" id="password" required [(ngModel)]="newUser!.password">
+</div>
+<button type="button" class="btn btn-danger" (click)="AddUser()">Submit</button>
