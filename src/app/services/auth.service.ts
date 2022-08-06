@@ -66,6 +66,10 @@ export class AuthService {
     return this.http.post<User>(`${environment.baseAPIURL}/users`, newUser);
   }
 
+  EditUser(editedUser: User) {
+    return this.http.post<User>(`${environment.baseAPIURL}/users`, editedUser);
+  }
+
   GetUsers() {
     return this.http.get(`${environment.baseAPIURL}/users`);
   }

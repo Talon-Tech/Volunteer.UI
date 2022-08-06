@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
   }
 
   Delete(user: User) {
-    var del = confirm(`Are you sure you want to delete the post "${this.user?.firstName} ${this.user?.lastName}"?`);
+    var del = confirm(`Are you sure you want to delete this account, "${this.user?.firstName} ${this.user?.lastName}"?`);
     if (del) {
       this.authSvc.DeleteUser(user as User).subscribe({
         next: (r) => this.router.navigate(['/']),
@@ -41,4 +41,9 @@ export class UsersComponent implements OnInit {
       });
     }
   }
+
+  Edit(userId: number) {
+   this.router.navigate(['/edituser']); 
+  }
+
 }

@@ -11,6 +11,7 @@ import { NewuserComponent } from './views/newuser/newuser.component';
 import { HomeComponent } from './views/home/home.component';
 import { UsersComponent } from './views/users/users.component';
 import { OpportunitiesComponent } from './views/opportunities/opportunities.component';
+import { EditUserComponent } from './views/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OpportunitiesComponent } from './views/opportunities/opportunities.comp
     NewuserComponent,
     HomeComponent,
     UsersComponent,
-    OpportunitiesComponent
+    OpportunitiesComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

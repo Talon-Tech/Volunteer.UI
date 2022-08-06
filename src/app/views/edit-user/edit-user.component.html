@@ -1,0 +1,186 @@
+<h1>Edit Account</h1>
+<div class="alert alert-danger" *ngIf="error">
+    {{errorMsg}}
+</div>
+<!-- <div class="mb-3">
+  <label for="userId" class="form-label">User Id <span class="req">*</span></label>
+  <input type="text" class="form-control" id="userId" required [(ngModel)]="newUser!.userId">
+</div> -->
+<div>
+    <label class="form-label">
+        Set Roles/Permissions
+    </label>
+</div>
+<div class="form-check">
+    <input mdbCheckbox [ngModel]="isVolunteer" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+    <label class="form-check-label" for="flexCheckDefault">
+        Volunteer
+    </label>
+</div>
+<div class="form-check">
+    <input mdbCheckbox [ngModel]="isAdmin" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+    <label class="form-check-label" for="flexCheckDefault">
+        Admin
+    </label>
+</div>
+<div class="mb-3">
+    <label for="firstName" class="form-label">First Name <span class="req">*</span></label>
+    <input type="text" class="form-control" id="firstName" required [(ngModel)]="editedUser!.firstName">
+</div>
+<div class="mb-3">
+    <label for="lastName" class="form-label">Last Name <span class="req">*</span></label>
+    <input type="text" class="form-control" id="lastName" required [(ngModel)]="editedUser!.lastName">
+</div>
+<div class="mb-3">
+    <label for="email" class="form-label">Email <span class="req">*</span></label>
+    <input type="email" class="form-control" id="email" required [(ngModel)]="editedUser!.email">
+</div>
+<div class="mb-3">
+    <label for="password" class="form-label">Password <span class="req">*</span></label>
+    <input type="password" class="form-control" id="password" required [(ngModel)]="editedUser!.password">
+</div>
+<div class="mb-3">
+    <label class="form-label">
+        Preferred Work Centers <span class="req">*</span>
+    </label>
+    <table *ngIf="preferredWorkCenters" class="table table-dark">
+        <tbody>
+            <tr *ngFor="let preferrence of preferredWorkCenters">
+                <td>
+                    {{ preferrence }}
+                </td>    
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="DeletePreferrence(preferrence)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button *ngIf="!isShowingAddPrefference" type="button" class="btn btn-primary" (click)="setIsShowingAddPreferrences(true)">
+            Add a Preferrence
+        </button>
+    </div>
+    <div *ngIf="isShowingAddPrefference">
+        <input type="text" class="form-control" required [(ngModel)]="addedPreferrence">
+        <button type="button" class="btn btn-primary" (click)="CreatePreferrence()">
+            Add
+        </button>
+    </div>
+</div>
+<div class="mb-3">
+    <label class="form-label">Skills or Interests <span class="req">*</span></label>
+    <table *ngIf="skillsOrInterests" class="table table-dark">
+        <tbody>
+            <tr *ngFor="let skillOrInterest of skillsOrInterests">
+                <td>
+                    {{ skillOrInterest }}
+                </td>    
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="DeleteSkillOrInterest(skillOrInterest)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button *ngIf="!isShowingAddSkillsOrInterests" type="button" class="btn btn-primary" (click)="setIsShowingAddSkillsOrInterests(true)">
+            Add Skill or Interest
+        </button>
+    </div>
+    <div *ngIf="isShowingAddSkillsOrInterests">
+        <input type="text" class="form-control" required [(ngModel)]="addedSkillOrInterest">
+        <button type="button" class="btn btn-primary" (click)="CreateSkillOrInterest()">
+            Add
+        </button>
+    </div>
+</div>
+<div class="mb-3">
+    <label class="form-label">Availability Times <span class="req">*</span></label>
+    <table *ngIf="availabilityTimes" class="table table-dark">
+        <tbody>
+            <tr *ngFor="let availability of availabilityTimes">
+                <td>
+                    {{ availability }}
+                </td>    
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="DeleteAvailabilityTime(availability)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button *ngIf="!isShowingAddAvailabilityTimes" type="button" class="btn btn-primary" (click)="setIsShowingAddAvailabilityTimes(true)">
+            Add Availability
+        </button>
+    </div>
+    <div *ngIf="isShowingAddAvailabilityTimes">
+        <input type="text" class="form-control" required [(ngModel)]="addedAvailabilityTime">
+        <button type="button" class="btn btn-primary" (click)="CreateAvailabilityTime()">
+            Add
+        </button>
+    </div>
+</div>
+<div class="mb-3">
+    <label class="form-label">Phone Numbers <span class="req">*</span></label>
+    <table *ngIf="phoneNumbers" class="table table-dark">
+        <tbody>
+            <tr *ngFor="let phoneNumber of phoneNumbers">
+                <td>
+                    {{ phoneNumber }}
+                </td>    
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="DeletePhoneNumber(phoneNumber)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button *ngIf="!isShowingAddPhoneNumbers" type="button" class="btn btn-primary" (click)="setIsShowingAddPhoneNumbers(true)">
+            Add Phone Number
+        </button>
+    </div>
+    <div *ngIf="isShowingAddPhoneNumbers">
+        <input type="text" class="form-control" required [(ngModel)]="addedPhoneNumber">
+        <button type="button" class="btn btn-primary" (click)="CreatePhoneNumber()">
+            Add
+        </button>
+    </div>
+</div>
+<div class="mb-3">
+    <label class="form-label">Current Licenses <span class="req">*</span></label>
+    <table *ngIf="currentLicenses" class="table table-dark">
+        <tbody>
+            <tr *ngFor="let currentLicense of currentLicenses">
+                <td>
+                    {{ currentLicense }}
+                </td>    
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="DeleteCurrentLicense(currentLicense)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button *ngIf="!isShowingAddCurrentLicenses" type="button" class="btn btn-primary" (click)="setIsShowingAddCurrentLicenses(true)">
+            Add Current License
+        </button>
+    </div>
+    <div *ngIf="isShowingAddCurrentLicenses">
+        <input type="text" class="form-control" required [(ngModel)]="addedCurrentLicense">
+        <button type="button" class="btn btn-primary" (click)="CreateCurrentLicense()">
+            Add
+        </button>
+    </div>
+</div>
+<button type="button" class="btn btn-danger" (click)="EditUser()">
+    Submit
+</button>

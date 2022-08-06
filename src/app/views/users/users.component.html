@@ -20,6 +20,15 @@
                 <td class="user">{{ user['lastName'] }}</td>
                 <td>{{ user['email'] }}</td>
                 <td><button type="button" class="btn btn-primary btn-sm" (click)="Delete(user)">Delete</button></td>
+                <td>
+                    <button 
+                        type="button" 
+                        class="btn btn-primary btn-sm" 
+                        (click)="Edit(user.userId)"
+                    >
+                        Edit
+                    </button>
+                </td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm" (PostDeleted)="DeletePost($event)">Delete</button></td> -->
             </tr>
         </tbody>

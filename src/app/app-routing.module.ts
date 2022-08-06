@@ -7,6 +7,7 @@ import { NewuserComponent } from './views/newuser/newuser.component';
 import { UsersComponent } from './views/users/users.component';
 import  { OpportunitiesComponent } from "./views/opportunities/opportunities.component"
 import { RguardService } from './services/rguard.service';
+import { EditUserComponent } from './views/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [RguardService]
+  },
+  {
+    path: 'edituser',
+    component: EditUserComponent,
     canActivate: [RguardService]
   },
   {
