@@ -42,15 +42,19 @@ export class AuthService {
 
   SetUserLoggedOn(token: string) {
     // console.log("SetUserLoggedOn");
-    let userId = <JwtPayload>jwtDecode(token);
     localStorage.setItem('authtoken', token);
     this.UserLoginChanged.emit(true);
     this.router.navigate(['/']);
   }
 
   GetCurrentUser() {
-    console.log(localStorage.getItem('authtoken'));
-    return localStorage.getItem('authtoken');
+    const tokenString = localStorage.getItem('authtoken');
+    if (!tokenString) {
+      return null;
+    }
+    const token = <any>jwtDecode(tokenString!);
+    console.log(token);
+    return token;
   }
 
   GetCurrentUserData(userId: string) {

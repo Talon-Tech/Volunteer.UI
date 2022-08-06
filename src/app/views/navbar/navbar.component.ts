@@ -10,18 +10,30 @@ import { AuthService } from '../../services/auth.service';
 export class NavbarComponent implements OnInit {
 
   currentUser: string | null;
+  roles: Array<string> | null;
 
   constructor(private authSvc: AuthService) {
-    this.currentUser = this.authSvc.GetCurrentUser();
+    let token = this.authSvc.GetCurrentUser();
+    if (!token) {
+      this.currentUser = null;
+      this.roles = null;
+    } else {
+      this.currentUser = token.UserData;
+      this.roles = token.Roles;
+    }
   }
 
   ngOnInit(): void {
     this.authSvc.UserLoginChanged.subscribe((status) => {
-      this.currentUser = this.authSvc.GetCurrentUser();
+      let token = this.authSvc.GetCurrentUser();
+      this.currentUser = token.UserData;
+      this.roles = token.Roles;
     })
   }
 
   Logout() {
+    this.currentUser = null;
+    this.roles = null;
     this.authSvc.Logout();
   }
 }

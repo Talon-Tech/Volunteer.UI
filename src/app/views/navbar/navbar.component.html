@@ -7,14 +7,38 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/newuser']">Create User</a>
-        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" *ngIf="!currentUser" [routerLink]="['/newuser']">Create User</a>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" *ngIf="!currentUser" [routerLink]="['/login']">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="currentUser" [routerLink]="['/users']">All Users</a>
+          <a 
+            class="nav-link" 
+            *ngIf="roles && roles.includes('Admin')" 
+            [routerLink]="['/users']"
+          >
+            Manage Volunteers
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            class="nav-link" 
+            *ngIf="roles && roles.includes('Admin')" 
+            [routerLink]="['/users']"
+          >
+            Manage Opportunities
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            class="nav-link" 
+            *ngIf="roles && roles.includes('Volunteer')" 
+            [routerLink]="['/users']"
+          >
+            All Volunteers
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="currentUser" (click)="Logout()">Logout</a>
