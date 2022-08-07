@@ -12,7 +12,7 @@
     </label>
 </div>
 <div class="form-check">
-    <input mdbCheckbox [ngModel]="isVolunteer" class="form-check-input" type="checkbox" value="" />
+    <input (change)="setIsVolunteer(isVolunteer)" mdbCheckbox [ngModel]="isVolunteer" class="form-check-input" type="checkbox" value="" />
     <label class="form-check-label" for="flexCheckDefault">
         Volunteer
     </label>
@@ -39,67 +39,69 @@
     <label for="password" class="form-label">Password <span class="req">*</span></label>
     <input type="password" class="form-control" id="password" required [(ngModel)]="editedUser!.password">
 </div>
-<div class="mb-3">
-    <label class="form-label">Address <span class="req">*</span></label>
-    <input type="text" class="form-control" required [(ngModel)]="address">
-</div>
-<div class="mb-3">
-    <label class="form-label">Educational Background <span class="req">*</span></label>
-    <input type="text" class="form-control" required [(ngModel)]="educationalBackground">
-</div>
-<div class="mb-3">
-    <label class="form-label">Emergency Contact Name<span class="req">*</span></label>
-    <input type="text" class="form-control" required [(ngModel)]="emergencyContactName">
-</div>
-<div class="mb-3">
-    <label class="form-label">Emergency Contact Phone<span class="req">*</span></label>
-    <input type="text" class="form-control" required [(ngModel)]="emergencyContactPhone">
-</div>
-<div class="mb-3">
-    <label class="form-label">Emergency Contact Email<span class="req">*</span></label>
-    <input type="text" class="form-control" required [(ngModel)]="emergencyContactEmail">
-</div>
-<div class="mb-3">
-    <label class="form-label">Emergency Contact Address<span class="req">*</span></label>
-    <input type="text" class="form-control" required [(ngModel)]="emergencyContactAddress">
-</div>
-<div class="mb-3">
-    <label class="form-label">Volunteer Approval Status<span class="req">*</span></label>
-    <input type="text" class="form-control" required [(ngModel)]="approvalStatus">
-</div>
-<div class="form-check">
-    <input mdbCheckbox [ngModel]="hasSSN" class="form-check-input" type="checkbox" value="" />
-    <label class="form-check-label">
-        Has Social Security Number
-    </label>
-</div>
-<div class="form-check">
-    <input mdbCheckbox [ngModel]="hasLicense" class="form-check-input" type="checkbox" value="" />
-    <label class="form-check-label">
-        Has Driver's License
-    </label>
-</div>
-<div class="mb-3">
-    <label class="form-label">
-        Preferred Work Centers <span class="req">*</span>
-    </label>
-    <app-table [items]="preferredWorkCenters"></app-table>
-</div>
-<div class="mb-3">
-    <label class="form-label">Skills or Interests <span class="req">*</span></label>
-    <app-table [items]="skillsOrInterests"></app-table>
-</div>
-<div class="mb-3">
-    <label class="form-label">Availability Times <span class="req">*</span></label>
-    <app-table [items]="availabilityTimes"></app-table>
-</div>
-<div class="mb-3">
-    <label class="form-label">Phone Numbers <span class="req">*</span></label>
-    <app-table [items]="phoneNumbers"></app-table>
-</div>
-<div class="mb-3">
-    <label class="form-label">Current Licenses <span class="req">*</span></label>
-    <app-table [items]="currentLicenses"></app-table>
+<div *ngIf="isVolunteer">
+    <div class="mb-3">
+        <label class="form-label">Address <span class="req">*</span></label>
+        <input type="text" class="form-control" required [(ngModel)]="address">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Educational Background <span class="req">*</span></label>
+        <input type="text" class="form-control" required [(ngModel)]="educationalBackground">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Emergency Contact Name<span class="req">*</span></label>
+        <input type="text" class="form-control" required [(ngModel)]="emergencyContactName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Emergency Contact Phone<span class="req">*</span></label>
+        <input type="text" class="form-control" required [(ngModel)]="emergencyContactPhone">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Emergency Contact Email<span class="req">*</span></label>
+        <input type="text" class="form-control" required [(ngModel)]="emergencyContactEmail">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Emergency Contact Address<span class="req">*</span></label>
+        <input type="text" class="form-control" required [(ngModel)]="emergencyContactAddress">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Volunteer Approval Status<span class="req">*</span></label>
+        <input type="text" class="form-control" required [(ngModel)]="approvalStatus">
+    </div>
+    <div class="form-check">
+        <input mdbCheckbox [ngModel]="hasSSN" class="form-check-input" type="checkbox" value="" />
+        <label class="form-check-label">
+            Has Social Security Number
+        </label>
+    </div>
+    <div class="form-check">
+        <input mdbCheckbox [ngModel]="hasLicense" class="form-check-input" type="checkbox" value="" />
+        <label class="form-check-label">
+            Has Driver's License
+        </label>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">
+            Preferred Work Centers <span class="req">*</span>
+        </label>
+        <app-table [items]="preferredWorkCenters"></app-table>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Skills or Interests <span class="req">*</span></label>
+        <app-table [items]="skillsOrInterests"></app-table>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Availability Times <span class="req">*</span></label>
+        <app-table [items]="availabilityTimes"></app-table>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Phone Numbers <span class="req">*</span></label>
+        <app-table [items]="phoneNumbers"></app-table>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Current Licenses <span class="req">*</span></label>
+        <app-table [items]="currentLicenses"></app-table>
+    </div>
 </div>
 <button type="button" class="btn btn-danger" (click)="EditUser()">
     Submit
