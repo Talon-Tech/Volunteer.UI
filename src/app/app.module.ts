@@ -12,6 +12,7 @@ import { HomeComponent } from './views/home/home.component';
 import { UsersComponent } from './views/users/users.component';
 import { OpportunitiesComponent } from './views/opportunities/opportunities.component';
 import { EditUserComponent } from './views/edit-user/edit-user.component';
+import { TableComponent } from './views/components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditUserComponent } from './views/edit-user/edit-user.component';
     HomeComponent,
     UsersComponent,
     OpportunitiesComponent,
-    EditUserComponent
+    EditUserComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

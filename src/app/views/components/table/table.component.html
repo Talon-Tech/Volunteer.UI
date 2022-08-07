@@ -1,0 +1,27 @@
+<div class="mb-3">
+    <table *ngIf="items" class="table table-dark">
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>
+                    {{ item }}
+                </td>    
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="DeleteItem(item)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button *ngIf="!isShowingAddItem" type="button" class="btn btn-primary" (click)="setIsShowingAddItems(true)">
+            Add
+        </button>
+    </div>
+    <div *ngIf="isShowingAddItem">
+        <input type="text" class="form-control" required [(ngModel)]="addedItem">
+        <button type="button" class="btn btn-primary" (click)="CreateItem()">
+            Add
+        </button>
+    </div>
+</div>

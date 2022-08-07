@@ -12,13 +12,13 @@
     </label>
 </div>
 <div class="form-check">
-    <input mdbCheckbox [ngModel]="isVolunteer" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+    <input mdbCheckbox [ngModel]="isVolunteer" class="form-check-input" type="checkbox" value="" />
     <label class="form-check-label" for="flexCheckDefault">
         Volunteer
     </label>
 </div>
 <div class="form-check">
-    <input mdbCheckbox [ngModel]="isAdmin" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+    <input mdbCheckbox [ngModel]="isAdmin" class="form-check-input" type="checkbox" value="" />
     <label class="form-check-label" for="flexCheckDefault">
         Admin
     </label>
@@ -40,34 +40,50 @@
     <input type="password" class="form-control" id="password" required [(ngModel)]="editedUser!.password">
 </div>
 <div class="mb-3">
+    <label class="form-label">Address <span class="req">*</span></label>
+    <input type="text" class="form-control" required [(ngModel)]="address">
+</div>
+<div class="mb-3">
+    <label class="form-label">Educational Background <span class="req">*</span></label>
+    <input type="text" class="form-control" required [(ngModel)]="educationalBackground">
+</div>
+<div class="mb-3">
+    <label class="form-label">Emergency Contact Name<span class="req">*</span></label>
+    <input type="text" class="form-control" required [(ngModel)]="emergencyContactName">
+</div>
+<div class="mb-3">
+    <label class="form-label">Emergency Contact Phone<span class="req">*</span></label>
+    <input type="text" class="form-control" required [(ngModel)]="emergencyContactPhone">
+</div>
+<div class="mb-3">
+    <label class="form-label">Emergency Contact Email<span class="req">*</span></label>
+    <input type="text" class="form-control" required [(ngModel)]="emergencyContactEmail">
+</div>
+<div class="mb-3">
+    <label class="form-label">Emergency Contact Address<span class="req">*</span></label>
+    <input type="text" class="form-control" required [(ngModel)]="emergencyContactAddress">
+</div>
+<div class="mb-3">
+    <label class="form-label">Volunteer Approval Status<span class="req">*</span></label>
+    <input type="text" class="form-control" required [(ngModel)]="approvalStatus">
+</div>
+<div class="form-check">
+    <input mdbCheckbox [ngModel]="hasSSN" class="form-check-input" type="checkbox" value="" />
+    <label class="form-check-label">
+        Has Social Security Number
+    </label>
+</div>
+<div class="form-check">
+    <input mdbCheckbox [ngModel]="hasLicense" class="form-check-input" type="checkbox" value="" />
+    <label class="form-check-label">
+        Has Driver's License
+    </label>
+</div>
+<div class="mb-3">
     <label class="form-label">
         Preferred Work Centers <span class="req">*</span>
     </label>
-    <table *ngIf="preferredWorkCenters" class="table table-dark">
-        <tbody>
-            <tr *ngFor="let preferrence of preferredWorkCenters">
-                <td>
-                    {{ preferrence }}
-                </td>    
-                <td>
-                    <button type="button" class="btn btn-danger" (click)="DeletePreferrence(preferrence)">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div>
-        <button *ngIf="!isShowingAddPrefference" type="button" class="btn btn-primary" (click)="setIsShowingAddPreferrences(true)">
-            Add a Preferrence
-        </button>
-    </div>
-    <div *ngIf="isShowingAddPrefference">
-        <input type="text" class="form-control" required [(ngModel)]="addedPreferrence">
-        <button type="button" class="btn btn-primary" (click)="CreatePreferrence()">
-            Add
-        </button>
-    </div>
+    <app-table [items]="preferredWorkCenters"></app-table>
 </div>
 <div class="mb-3">
     <label class="form-label">Skills or Interests <span class="req">*</span></label>
