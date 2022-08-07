@@ -87,115 +87,19 @@
 </div>
 <div class="mb-3">
     <label class="form-label">Skills or Interests <span class="req">*</span></label>
-    <table *ngIf="skillsOrInterests" class="table table-dark">
-        <tbody>
-            <tr *ngFor="let skillOrInterest of skillsOrInterests">
-                <td>
-                    {{ skillOrInterest }}
-                </td>    
-                <td>
-                    <button type="button" class="btn btn-danger" (click)="DeleteSkillOrInterest(skillOrInterest)">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div>
-        <button *ngIf="!isShowingAddSkillsOrInterests" type="button" class="btn btn-primary" (click)="setIsShowingAddSkillsOrInterests(true)">
-            Add Skill or Interest
-        </button>
-    </div>
-    <div *ngIf="isShowingAddSkillsOrInterests">
-        <input type="text" class="form-control" required [(ngModel)]="addedSkillOrInterest">
-        <button type="button" class="btn btn-primary" (click)="CreateSkillOrInterest()">
-            Add
-        </button>
-    </div>
+    <app-table [items]="skillsOrInterests"></app-table>
 </div>
 <div class="mb-3">
     <label class="form-label">Availability Times <span class="req">*</span></label>
-    <table *ngIf="availabilityTimes" class="table table-dark">
-        <tbody>
-            <tr *ngFor="let availability of availabilityTimes">
-                <td>
-                    {{ availability }}
-                </td>    
-                <td>
-                    <button type="button" class="btn btn-danger" (click)="DeleteAvailabilityTime(availability)">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div>
-        <button *ngIf="!isShowingAddAvailabilityTimes" type="button" class="btn btn-primary" (click)="setIsShowingAddAvailabilityTimes(true)">
-            Add Availability
-        </button>
-    </div>
-    <div *ngIf="isShowingAddAvailabilityTimes">
-        <input type="text" class="form-control" required [(ngModel)]="addedAvailabilityTime">
-        <button type="button" class="btn btn-primary" (click)="CreateAvailabilityTime()">
-            Add
-        </button>
-    </div>
+    <app-table [items]="availabilityTimes"></app-table>
 </div>
 <div class="mb-3">
     <label class="form-label">Phone Numbers <span class="req">*</span></label>
-    <table *ngIf="phoneNumbers" class="table table-dark">
-        <tbody>
-            <tr *ngFor="let phoneNumber of phoneNumbers">
-                <td>
-                    {{ phoneNumber }}
-                </td>    
-                <td>
-                    <button type="button" class="btn btn-danger" (click)="DeletePhoneNumber(phoneNumber)">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div>
-        <button *ngIf="!isShowingAddPhoneNumbers" type="button" class="btn btn-primary" (click)="setIsShowingAddPhoneNumbers(true)">
-            Add Phone Number
-        </button>
-    </div>
-    <div *ngIf="isShowingAddPhoneNumbers">
-        <input type="text" class="form-control" required [(ngModel)]="addedPhoneNumber">
-        <button type="button" class="btn btn-primary" (click)="CreatePhoneNumber()">
-            Add
-        </button>
-    </div>
+    <app-table [items]="phoneNumbers"></app-table>
 </div>
 <div class="mb-3">
     <label class="form-label">Current Licenses <span class="req">*</span></label>
-    <table *ngIf="currentLicenses" class="table table-dark">
-        <tbody>
-            <tr *ngFor="let currentLicense of currentLicenses">
-                <td>
-                    {{ currentLicense }}
-                </td>    
-                <td>
-                    <button type="button" class="btn btn-danger" (click)="DeleteCurrentLicense(currentLicense)">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div>
-        <button *ngIf="!isShowingAddCurrentLicenses" type="button" class="btn btn-primary" (click)="setIsShowingAddCurrentLicenses(true)">
-            Add Current License
-        </button>
-    </div>
-    <div *ngIf="isShowingAddCurrentLicenses">
-        <input type="text" class="form-control" required [(ngModel)]="addedCurrentLicense">
-        <button type="button" class="btn btn-primary" (click)="CreateCurrentLicense()">
-            Add
-        </button>
-    </div>
+    <app-table [items]="currentLicenses"></app-table>
 </div>
 <button type="button" class="btn btn-danger" (click)="EditUser()">
     Submit
