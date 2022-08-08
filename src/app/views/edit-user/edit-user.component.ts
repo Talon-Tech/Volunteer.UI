@@ -15,21 +15,6 @@ export class EditUserComponent implements OnInit {
 
   editedUser: User | null = null;
 
-  preferredWorkCenters?: Array<string>;
-  skillsOrInterests?: Array<string>;
-  availabilityTimes?: Array<string>;
-  address?: string;
-  phoneNumbers?: Array<string>;
-  educationalBackground?: string;
-  currentLicenses?: Array<string>;
-  emergencyContactName?: string;
-  emergencyContactPhone?: string;
-  emergencyContactEmail?: string;
-  emergencyContactAddress?: string;
-  hasLicense?: boolean;
-  hasSSN?: boolean
-  approvalStatus?: string;
-
   error = false;
   errorMsg = '';
 
@@ -68,15 +53,23 @@ export class EditUserComponent implements OnInit {
     } else {
       // console.log("Test");
       // console.log(this.newUser);
-      this.authSvc.EditUser(this.editedUser as User).subscribe({
-        next: (r) => this.router.navigate(['/users']),
-        error: (e) => { this.error = true, this.errorMsg = e.error.message }
-      });
+      if (this.editedUser) {
+        this.authSvc.EditUser({
+          UserData: this.editedUser,
+          Roles: this.roles
+        }).subscribe({
+          next: (r) => this.router.navigate(['/users']),
+          error: (e) => { this.error = true, this.errorMsg = e.error.message }
+        });
+      }
     }
   }
 
   setIsVolunteer(flag: boolean) {
     this.isVolunteer = !flag;
+  }
+  setIsAdmin(flag: boolean) {
+    this.isAdmin = !flag;
   }
 
 }

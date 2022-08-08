@@ -24,6 +24,10 @@
     </label>
 </div>
 <div class="mb-3">
+    <label for="firstName" class="form-label">User Name <span class="req">*</span></label>
+    <input type="text" class="form-control" id="firstName" required [(ngModel)]="editedUser!.username">
+</div>
+<div class="mb-3">
     <label for="firstName" class="form-label">First Name <span class="req">*</span></label>
     <input type="text" class="form-control" id="firstName" required [(ngModel)]="editedUser!.firstName">
 </div>
@@ -42,40 +46,40 @@
 <div *ngIf="isVolunteer">
     <div class="mb-3">
         <label class="form-label">Address <span class="req">*</span></label>
-        <input type="text" class="form-control" required [(ngModel)]="address">
+        <input type="text" class="form-control" required [(ngModel)]="editedUser!.address">
     </div>
     <div class="mb-3">
         <label class="form-label">Educational Background <span class="req">*</span></label>
-        <input type="text" class="form-control" required [(ngModel)]="educationalBackground">
+        <input type="text" class="form-control" required [(ngModel)]="editedUser!.educationalBackground">
     </div>
     <div class="mb-3">
         <label class="form-label">Emergency Contact Name<span class="req">*</span></label>
-        <input type="text" class="form-control" required [(ngModel)]="emergencyContactName">
+        <input type="text" class="form-control" required [(ngModel)]="editedUser!.emergencyContactName">
     </div>
     <div class="mb-3">
         <label class="form-label">Emergency Contact Phone<span class="req">*</span></label>
-        <input type="text" class="form-control" required [(ngModel)]="emergencyContactPhone">
+        <input type="text" class="form-control" required [(ngModel)]="editedUser!.emergencyContactPhone">
     </div>
     <div class="mb-3">
         <label class="form-label">Emergency Contact Email<span class="req">*</span></label>
-        <input type="text" class="form-control" required [(ngModel)]="emergencyContactEmail">
+        <input type="text" class="form-control" required [(ngModel)]="editedUser!.emergencyContactEmail">
     </div>
     <div class="mb-3">
         <label class="form-label">Emergency Contact Address<span class="req">*</span></label>
-        <input type="text" class="form-control" required [(ngModel)]="emergencyContactAddress">
+        <input type="text" class="form-control" required [(ngModel)]="editedUser!.emergencyContactAddress">
     </div>
     <div class="mb-3">
         <label class="form-label">Volunteer Approval Status<span class="req">*</span></label>
-        <input type="text" class="form-control" required [(ngModel)]="approvalStatus">
+        <input type="text" class="form-control" required [(ngModel)]="editedUser!.approvalStatus">
     </div>
     <div class="form-check">
-        <input mdbCheckbox [ngModel]="hasSSN" class="form-check-input" type="checkbox" value="" />
+        <input mdbCheckbox [ngModel]="editedUser!.hasSSN" class="form-check-input" type="checkbox" value="" />
         <label class="form-check-label">
             Has Social Security Number
         </label>
     </div>
     <div class="form-check">
-        <input mdbCheckbox [ngModel]="hasLicense" class="form-check-input" type="checkbox" value="" />
+        <input mdbCheckbox [ngModel]="editedUser!.hasLicense" class="form-check-input" type="checkbox" value="" />
         <label class="form-check-label">
             Has Driver's License
         </label>
@@ -84,23 +88,23 @@
         <label class="form-label">
             Preferred Work Centers <span class="req">*</span>
         </label>
-        <app-table [items]="preferredWorkCenters"></app-table>
+        <app-table [items]="editedUser!.preferredWorkCenters"></app-table>
     </div>
     <div class="mb-3">
         <label class="form-label">Skills or Interests <span class="req">*</span></label>
-        <app-table [items]="skillsOrInterests"></app-table>
+        <app-table [items]="editedUser!.skillsOrInterests"></app-table>
     </div>
     <div class="mb-3">
         <label class="form-label">Availability Times <span class="req">*</span></label>
-        <app-table [items]="availabilityTimes"></app-table>
+        <app-table [items]="editedUser!.availabilityTimes"></app-table>
     </div>
     <div class="mb-3">
         <label class="form-label">Phone Numbers <span class="req">*</span></label>
-        <app-table [items]="phoneNumbers"></app-table>
+        <app-table [items]="editedUser!.phoneNumbers"></app-table>
     </div>
     <div class="mb-3">
         <label class="form-label">Current Licenses <span class="req">*</span></label>
-        <app-table [items]="currentLicenses"></app-table>
+        <app-table [items]="editedUser!.currentLicenses"></app-table>
     </div>
 </div>
 <button type="button" class="btn btn-danger" (click)="EditUser()">

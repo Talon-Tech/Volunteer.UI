@@ -19,7 +19,7 @@ export class AuthService {
   constructor(private router: Router, private http: HttpClient) { }
 
   private GenerateAuthHeader() {
-    let token = this.GetCurrentUser();
+    let token = localStorage.getItem('authtoken')
     if (token == null) {
       alert('You are not logged in!');
       this.router.navigate(['/login']);
@@ -63,11 +63,11 @@ export class AuthService {
   }
 
   AddUser(newUser: User) {
-    return this.http.post<User>(`${environment.baseAPIURL}/users`, newUser);
+    return this.http.post<User>(`${environment.baseAPIURL}/users`, newUser, { headers: this.GenerateAuthHeader() });
   }
 
-  EditUser(editedUser: User) {
-    return this.http.post<User>(`${environment.baseAPIURL}/users`, editedUser);
+  EditUser(editedUser: any) {
+    return this.http.patch(`${environment.baseAPIURL}/users`, editedUser, { headers: this.GenerateAuthHeader() });
   }
 
   GetUsers() {
