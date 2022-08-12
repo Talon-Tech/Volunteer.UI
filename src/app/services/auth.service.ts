@@ -62,8 +62,8 @@ export class AuthService {
     return this.http.get(`${environment.baseAPIURL}/users${userId}`, { headers: this.GenerateAuthHeader() });
   }
 
-  AddUser(newUser: User) {
-    return this.http.post<User>(`${environment.baseAPIURL}/users`, newUser, { headers: this.GenerateAuthHeader() });
+  AddUser(newUser: any) {
+    return this.http.post(`${environment.baseAPIURL}/users`, newUser, { headers: this.GenerateAuthHeader() });
   }
 
   EditUser(editedUser: any) {

@@ -46,13 +46,10 @@ export class EditUserComponent implements OnInit {
   }
 
   EditUser() {
-    // if (this.newUser?.userId == null || this.newUser?.firstName == '' || this.newUser?.lastName == '' || this.newUser?.email == '' || this.newUser?.password == '') {
     if (this.editedUser?.firstName == '' || this.editedUser?.lastName == '' || this.editedUser?.email == '' || this.editedUser?.password == '') {
       this.error = true;
       this.errorMsg = "Please complete the required information";
     } else {
-      // console.log("Test");
-      // console.log(this.newUser);
       if (this.editedUser) {
         this.authSvc.EditUser({
           UserData: this.editedUser,
