@@ -1,22 +1,20 @@
-<div class="row">
-    <h1>All Opportunities</h1>
-</div>
-
+<h1>All Opportunities</h1>
+<a [routerLink]="['/newopp']" routerLinkActive="router-link-active" class="btn btn-secondary">Add Opportunity</a>
 <div class="row">
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">OppId#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Center</th>
                 <th scope="col">Date</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             <tr *ngFor="let opp of opportunityArray">
-                <td>{{ opp['id'] }}</td>
                 <td class="user">{{ opp['name'] }}</td>
+                <td class="user">{{ opp['center'] }}</td>
                 <td class="user">{{ opp['date'] | date:'MM-dd-yyyy'}}</td>
 
                 <td>

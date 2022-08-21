@@ -5,6 +5,10 @@
         <input type="text" class="form-control" name="first" required [(ngModel)]="newOpp!.name">
     </div>
     <div class="mb-3">
+        <label for="center" class="form-label">Center</label>
+        <input type="text" class="form-control" name="center" required [ngModel]="newOpp!.center"> 
+    </div>
+    <div class="mb-3">
         <label for="date" class="form-label">Date</label>
         <input type="date" class="form-control" name="date" required [ngModel]="newOpp!.date | date:'yyyy-MM-dd'" (ngModelChange)="newOpp!.date = $event"> 
     </div>
