@@ -10,12 +10,13 @@
                 <th scope="col">First</th>
                 <th scope="col">Last</th>
                 <th scope="col">Email</th>
-                <th scope="col">Delete User</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of userArray">
-                <th>{{ user['userId'] }}</th>
+                <td>{{ user['userId'] }}</td>
                 <td class="user">{{ user['firstName'] }}</td>
                 <td class="user">{{ user['lastName'] }}</td>
                 <td>{{ user['email'] }}</td>

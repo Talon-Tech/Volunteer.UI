@@ -5,7 +5,9 @@ import { LoginComponent } from './views/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { NewuserComponent } from './views/newuser/newuser.component';
 import { UsersComponent } from './views/users/users.component';
-import  { OpportunitiesComponent } from "./views/opportunities/opportunities.component"
+import { OpportunitiesComponent } from "./views/opportunities/opportunities.component"
+import { EditOpportunityComponent } from "./views/edit-opportunity/edit-opportunity.component"
+import { NewOpportunityComponent } from "./views/new-opportunity/new-opportunity.component"
 import { RguardService } from './services/rguard.service';
 import { EditUserComponent } from './views/edit-user/edit-user.component';
 
@@ -36,6 +38,16 @@ const routes: Routes = [
   {
     path: 'opportunities',
     component: OpportunitiesComponent,
+    canActivate: [RguardService]
+  },
+  {
+    path: 'newopp',
+    component: NewOpportunityComponent,
+    canActivate: [RguardService]
+  },
+  {
+    path: 'editopp/:oppId',
+    component: EditOpportunityComponent,
     canActivate: [RguardService]
   }
 ];

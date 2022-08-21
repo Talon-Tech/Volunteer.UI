@@ -18,7 +18,16 @@ export class AuthService {
 
   constructor(private router: Router, private http: HttpClient) { }
 
-  private GenerateAuthHeader() {
+  GenerateAuthHeader() {
+    // let token = this.GetCurrentUser();
+    // if (token == null) {
+    //   alert('You are not logged in!');
+    //   this.router.navigate(['/login']);
+    // }
+    // let headers: HttpHeaders = new HttpHeaders();
+    // headers = headers.set('Authorization', `Bearer ${token as string}`);
+    // return headers;
+
     let token = localStorage.getItem('authtoken')
     if (token == null) {
       alert('You are not logged in!');
@@ -48,6 +57,8 @@ export class AuthService {
   }
 
   GetCurrentUser() {
+    // return localStorage.getItem('authtoken');
+
     const tokenString = localStorage.getItem('authtoken');
     if (!tokenString) {
       return null;

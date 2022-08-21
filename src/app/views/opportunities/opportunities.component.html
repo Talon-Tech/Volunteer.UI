@@ -1,1 +1,40 @@
-<p>opportunities works!</p>
+<div class="row">
+    <h1>All Opportunities</h1>
+</div>
+
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">OppId#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let opp of opportunityArray">
+                <td>{{ opp['id'] }}</td>
+                <td class="user">{{ opp['name'] }}</td>
+                <td class="user">{{ opp['date'] | date:'MM-dd-yyyy'}}</td>
+
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm"
+                        [routerLink]="['/editopp', opp?.id]">Edit</button>
+                    <!-- <button 
+                        type="button" 
+                        class="btn btn-primary btn-sm" 
+                        (click)="Edit(opp.id)"
+                    >
+                        Edit
+                    </button> -->
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="Delete(opp)">Delete</button>
+                </td>
+                <!-- <td><button type="button" class="btn btn-primary btn-sm" (PostDeleted)="DeletePost($event)">Delete</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

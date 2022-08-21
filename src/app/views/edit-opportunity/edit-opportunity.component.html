@@ -1,0 +1,13 @@
+<h1>Edit an Opportunity</h1>
+<form>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="first" required [(ngModel)]="currentOpp!.name">
+    </div>
+    <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" name="date" required [ngModel]="currentOpp!.date | date:'yyyy-MM-dd'" (ngModelChange)="currentOpp!.date = $event">
+    </div>
+    <button type="button" class="btn btn-primary me-2" (click)="EditOpportunity()">Update</button>
+    <a [routerLink]="['/opportunities']" routerLinkActive="router-link-active" class="btn btn-secondary">Cancel</a>
+</form>

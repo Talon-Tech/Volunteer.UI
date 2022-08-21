@@ -13,6 +13,8 @@ import { UsersComponent } from './views/users/users.component';
 import { OpportunitiesComponent } from './views/opportunities/opportunities.component';
 import { EditUserComponent } from './views/edit-user/edit-user.component';
 import { TableComponent } from './views/components/table/table.component';
+import { EditOpportunityComponent } from './views/edit-opportunity/edit-opportunity.component';
+import { NewOpportunityComponent } from './views/new-opportunity/new-opportunity.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { TableComponent } from './views/components/table/table.component';
     UsersComponent,
     OpportunitiesComponent,
     EditUserComponent,
-    TableComponent
+    TableComponent,
+    EditOpportunityComponent,
+    NewOpportunityComponent
   ],
   imports: [
     BrowserModule,

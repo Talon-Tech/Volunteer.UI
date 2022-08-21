@@ -26,12 +26,12 @@
           <a 
             class="nav-link" 
             *ngIf="roles && roles.includes('Admin')" 
-            [routerLink]="['/opportunuties']"
+            [routerLink]="['/opportunities']"
           >
             Manage Opportunities
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a 
             class="nav-link" 
             *ngIf="roles && roles.includes('Volunteer')" 
@@ -39,7 +39,7 @@
           >
             All Volunteers
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" *ngIf="currentUser" (click)="Logout()">Logout</a>
         </li>

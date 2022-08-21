@@ -1,0 +1,16 @@
+<h1>Add a New Opportunity</h1>
+<form>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="first" required [(ngModel)]="newOpp!.name">
+    </div>
+    <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" name="date" required [ngModel]="newOpp!.date | date:'yyyy-MM-dd'" (ngModelChange)="newOpp!.date = $event"> 
+    </div>
+    <!-- <button type="button" class="btn btn-primary me-2" (click)="EditOpportunity()">Update</button> -->
+    <button type="button" class="btn btn-danger me-2" (click)="AddOpportunity()">
+        Submit
+    </button>
+    <a [routerLink]="['/opportunities']" routerLinkActive="router-link-active" class="btn btn-secondary">Cancel</a>
+</form>

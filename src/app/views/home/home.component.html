@@ -1,1 +1,23 @@
-<h1>Welcome home!</h1>
+<h1>Welcome to Talon Tech!</h1>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Manage Volunteers</h5>
+                <p class="card-text">Add or change volunteer information.</p>
+                <a [routerLink]="['/newuser']" routerLinkActive="router-link-active" class="card-link">Add User</a>
+                <a [routerLink]="['/users']" routerLinkActive="router-link-active" class="card-link">View Users</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Manage Opportunities</h5>
+                <p class="card-text">Add or change upcoming volunteer opportunities.</p>
+                <a [routerLink]="['/newopp']" routerLinkActive="router-link-active" class="card-link">Add Opportunity</a>
+                <a [routerLink]="['/opportunities']" routerLinkActive="router-link-active" class="card-link">View Opportunities</a>
+            </div>
+        </div>
+    </div>
+</div>
