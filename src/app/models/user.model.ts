@@ -18,8 +18,8 @@ export class User {
     emergencyContactPhone: string  | null = null;
     emergencyContactEmail: string  | null = null;
     emergencyContactAddress: string  | null = null;
-    hasLicense: boolean  | null = null;
-    hasSSN: boolean | null = null;
+    hasLicense: boolean = false;
+    hasSSN: boolean = false;
     approvalStatus: string  | null = null;
 
 	constructor(obj: any = null) {
